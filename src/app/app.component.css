@@ -1,0 +1,66 @@
+body{
+    padding:0;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.col1{
+    padding-top:2%;
+    padding-bottom:5%;
+}
+.form-group{
+    padding-top: 1vh;
+}
+.form-group h5{
+    padding-bottom: 1vh;
+}
+.dateToday{
+    font-size: 1.2rem;
+}
+.n1,.n2,.z1,.z2,.z3{
+    display: inline-block;
+}
+.n1{
+    width: 50%;
+}
+.n2{
+    width: 40%;
+    margin-left: 5%;
+}
+.z1{
+    width: 30%;
+}
+.z2{
+    width: 30%;
+    margin-left: 5%;
+}
+.z3{
+    width: 30%;
+    margin-left: 5%;
+}
+input[type=radio]{
+    transform:scale(1.5);
+}
+.cvv1 input{
+    width: 30%;
+}
+.terms{
+    font-weight: normal;
+}
+.company{
+    width:20%;
+}
+.help-block{
+    color: red;
+}
+@media only screen and (max-width: 1240px) {
+    .dateToday{
+        display: block;
+        padding-top: 1vh;
+    }
+  }
+
+@media only screen and (min-width: 1241px) {
+    .dateToday{
+        margin-left:35%;
+    }
+  }

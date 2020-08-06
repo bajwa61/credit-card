@@ -1,0 +1,222 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-10 offset-md-2 col1">
+            <div class="card">
+                <h2 class="card-header">
+                      Credit Card Authorization
+                      <span class="dateToday">
+                        Today Date : {{myDate | date: 'shortDate' }}
+                      </span>
+                </h2>
+                <div class="card-body">
+                    <form (ngSubmit)="submitForm(f1)" #f1="ngForm">
+                        <div class="form-group n1">
+                            <h5 class="card-title">Enter Cardholder Name</h5>
+                            <input 
+                                name="creditCardOwner" 
+                                ngModel 
+                                type="text" 
+                                class="form-control"
+                                required
+                                #creditCardOwner="ngModel"
+                            >
+                            <span class="help-block" 
+                                    *ngIf="!creditCardOwner.valid && creditCardOwner.touched">Please Enter Cardholder Name
+                            </span>
+                        </div>
+                        <div class="form-group n2">
+                            <h5 class="card-title">Enter Card Number</h5>
+                            <input 
+                                 name="creditCardNumber" 
+                                 ngModel 
+                                 type="text" 
+                                 class="form-control"
+                                 #creditCardNumber="ngModel"
+                                 minlength="16" 
+                                 maxlength="16"
+                                 required
+                            >
+                            <span class="help-block" 
+                                    *ngIf="!creditCardNumber.valid && creditCardNumber.touched">Please Enter Valid Card Number
+                            </span>
+                        </div>
+                        <div class="form-group t">
+                            <h5>Choose Credit Card</h5> 
+                            <div class="text-center">
+                                <input 
+                                     ngModel 
+                                     type="radio" 
+                                     name="creditCardType" 
+                                     value="Visa" 
+                                     class="mr-4"
+                                     #creditCardType="ngModel"
+                                     required
+                                >   
+                                <img src="../assets/visa.png">
+                                <input 
+                                     ngModel 
+                                     type="radio" 
+                                     name="creditCardType" 
+                                     value="Master Card" 
+                                     class="mr-4 ml-4"
+                                     #creditCardType="ngModel"
+                                     required
+                                >   
+                                <img id="t2" src="../assets/mastercard.png">
+                                <input 
+                                     ngModel 
+                                     type="radio"
+                                     name="creditCardType"
+                                     value="American Express" 
+                                     class="mr-4 ml-4 t3"
+                                     #creditCardType="ngModel"
+                                     required
+                                >   
+                                <img src="../assets/american_express_card.png" class="t3img">
+                                <input 
+                                    ngModel 
+                                    type="radio" 
+                                    name="creditCardType"
+                                    value="Discover" 
+                                    class="mr-4 ml-4"
+                                    #creditCardType="ngModel"
+                                    required
+                                >   
+                                <img src="../assets/discover.png">
+                                <span class="help-block" *ngIf="!creditCardType.valid && creditCardType.touched">Please Select One Card</span>
+                            </div>
+                        </div>
+                        <div class="form-group n1">
+                            <h5 class="card-title">Enter Expiration Month</h5>
+                            <input 
+                                    name="creditCardExpiryMonth" 
+                                    ngModel 
+                                    type="text" 
+                                    class="form-control"
+                                    #creditCardExpiryMonth="ngModel"
+                                    required
+                                    minlength="2"
+                                    maxlength="2"
+                            >
+                            <span class="help-block" *ngIf="!creditCardExpiryMonth.valid && creditCardExpiryMonth.touched">Please Enter Expiry Month in Number  </span>
+                        </div>
+                        <div class="form-group n2">
+                            <h5 class="card-title">Enter Expiration Year</h5>
+                            <input 
+                                   name="creditCardExpYear" 
+                                   ngModel 
+                                   type="text" 
+                                   class="form-control" 
+                                   #creditCardExpYear="ngModel"
+                                   required
+                                   minlength="4"
+                                   maxlength="4"
+                            >
+                            <span class="help-block" *ngIf="!creditCardExpYear.valid && creditCardExpYear.touched">Please Enter Expiry Year in Number  </span>
+                        </div>
+                        <div class="form-group cvv1 ">
+                            <h5 class="card-title">Enter CVV</h5>
+                            <input 
+                                   name="creditCardCVV" 
+                                   ngModel 
+                                   type="text" 
+                                   class="form-control"
+                                   #creditCardCVV="ngModel"
+                                   required
+                                   minlength="3"
+                                   maxlength="4"
+                            >
+                            <span class="help-block" *ngIf="!creditCardCVV.valid && creditCardCVV.touched">Enter Valid CVV  </span>
+                        </div>
+                        <div class="form-group z1">
+                            <h5 class="card-title">Company Name</h5>
+                            <input 
+                                  type="text" 
+                                  name="companyName" 
+                                  ngModel 
+                                  class="form-control"
+                                  #companyName="ngModel"
+                                  required
+                                  minlength="5"
+                                  maxlength="5"
+                            >
+                            <span class="help-block" *ngIf="!companyName.valid && companyName.touched">Length of Company should be equal to  5</span>
+                        </div>
+                        <div class="form-group z2">
+                            <h5 class="card-title">Customer Number</h5>
+                            <input 
+                                 name="customerNumber" 
+                                 ngModel 
+                                 type="text" 
+                                 class="form-control"
+                                 #customerNumber="ngModel"
+                                 required
+                                 minlength="5"
+                                 maxlength="5"
+                            >
+                            <span class="help-block" *ngIf="!customerNumber.valid && customerNumber.touched">Customer length should be equal to 5</span>
+                        </div>
+                        <div class="form-group z3">
+                            <h5 class="card-title">ZIP</h5>
+                            <input 
+                                 name="zip" 
+                                 ngModel 
+                                 type="text" 
+                                 class="form-control"
+                                 #zip="ngModel"
+                                 required
+                                 minlength="5"
+                                 maxlength="5"
+                            >
+                            <span class="help-block" *ngIf="!zip.valid && zip.touched">ZIP should be equal than 5</span>
+                        </div>
+                        <div class="form-group z1">
+                            <h5 class="card-title">Enter Invoice Number</h5>
+                            <input 
+                                 name="invoiceNumber" 
+                                 ngModel 
+                                 type="text"
+                                 class="form-control">
+                        </div>
+                        <h5 class="card-text terms text-justify mb-3">
+                            <span style="font-weight: bold;">Note : </span> 
+                            <br><br>
+                            I  
+                            <strong *ngIf="!creditCardOwner.value">Customer</strong>
+                            <strong *ngIf="creditCardOwner.value">{{creditCardOwner.value}}</strong>
+                            authorize
+                            <input 
+                                  name="companyName2" 
+                                  ngModel 
+                                  type="text" 
+                                  class="company"
+                                  placeholder="Company Name"
+                                  #companyName2="ngModel"
+                                  required>
+                             to charge my credit card above for agreed upon purchases.
+                            I understand my card will be securely saved to file for futures transactions on my account.
+                        </h5>
+
+                        <h5 class="card-title" style="font-weight: bold;">Signature </h5>
+
+                        <signature-pad 
+                              [options]="signaturePadOptions" 
+                              (onBeginEvent)="drawStart()" 
+                              (onEndEvent)="drawComplete()"
+                              id="signatureCanvas" drag-content="false"
+                        >
+
+                        </signature-pad>
+                        <br>
+                        <button 
+                              type="submit" 
+                              [disabled]="f1.form.invalid"
+                              class="btn btn-primary btn-lg mt-5">
+                              Add Details Now
+                        </button>
+                    </form>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
